@@ -1,38 +1,65 @@
 # FilmFlix
-FilmFlix is a website that recommends movies as per user taste
 
-<h3>Objective</h3> 
-<ul>
-     <li>FilmFlix is a website that recommends movies based on genre and year</li>
-      <li>Also, the website recommends movies on basis of the previously watched movie by the user</li>
-</ul>
+A Flask-based movie recommendation system that suggests films matching the user's taste — either by selecting a preferred genre and release year, or by entering a previously watched movie to receive content-similar recommendations.
 
-***
+## Overview
 
-<b>Technology Used:</b> 
-<ol>
-<li> Python </li>
-<li> HTML,CSS,BootStrap </li>
-<li> Machine Learning </li>
-<li> Flask </li>
+- Genre + year-based filtering for casual discovery.
+- Content-based filtering (cosine similarity on movie features) for personalised recommendations from a watched title.
+- Clean web UI served by Flask + Bootstrap.
 
-***
-      
-<h3>Screenshots</h3>
+## Features
 
-<div class="row">
-      <img src="/Images/img1.png" width="250" title="Home page">
-</div>
+- Genre-and-year movie discovery
+- Content-based "similar to" recommendations
+- Bootstrap-styled responsive UI
+- Pre-trained similarity model bundled in `Model/`
 
-<h4>Recommend on basis of genre and year</h4>
-<div class="row">
-      <img src="/Images/im1.png" width="250" title="Recommend on basis of genre and year">     
-      <img src="/Images/img3.png" width="250" title="Recommend on basis of genre and year result">
-</div>
+## Tech Stack
 
+- **Backend:** Python, Flask
+- **ML:** scikit-learn, pandas (content-based filtering — see `Content Based Filtering.ipynb`)
+- **Frontend:** HTML, CSS, Bootstrap
 
-<h4>Recommend on basis of previous movie watched</h4>
-<div class="row">
-      <img src="/Images/im2.png" width="250" title="Recommend on basis of previous movie watched">     
-      <img src="/Images/img5.png" width="250" title="Recommend on basis of previous movie watched result">
-</div>
+## Project Structure
+
+```
+FilmFlix/
+├── app.py                          # Flask app entry point
+├── Content Based Filtering.ipynb   # Model training notebook
+├── Model/                          # Serialized similarity matrix + movie data
+├── dataset/                        # Source movie dataset
+├── templates/                      # Jinja2 HTML templates
+└── Images/                         # Screenshots
+```
+
+## Setup
+
+```bash
+git clone https://github.com/WorkRabdeepSinghKharbanda/FilmFlix.git
+cd FilmFlix
+pip install flask pandas scikit-learn numpy
+python app.py
+```
+
+Open `http://127.0.0.1:5000/`.
+
+## Screenshots
+
+| Home |
+|------|
+| ![](Images/img1.png) |
+
+### Recommend by Genre + Year
+| Form | Result |
+|------|--------|
+| ![](Images/im1.png) | ![](Images/img3.png) |
+
+### Recommend by Previously Watched Movie
+| Form | Result |
+|------|--------|
+| ![](Images/im2.png) | ![](Images/img5.png) |
+
+## License
+
+MIT
