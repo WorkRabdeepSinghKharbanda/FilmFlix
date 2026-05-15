@@ -38,7 +38,7 @@ FilmFlix/
 ```bash
 git clone https://github.com/WorkRabdeepSinghKharbanda/FilmFlix.git
 cd FilmFlix
-pip install flask pandas scikit-learn numpy
+python3 -m pip install flask pandas scikit-learn numpy
 python app.py
 ```
 
